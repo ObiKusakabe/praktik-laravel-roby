@@ -7,12 +7,14 @@
 </head>
 <body>
     <h1>Daftar Mahasiswa</h1>
+    <a href="/mahasiswa/create">Tambah Mahasiswa</a>
     <table border="1">
         <tr>
             <th>No</th>
             <th>Nama</th>
             <th>NIM</th>
             <th>Jurusan</th>
+            <th>Aksi</th>
         </tr>
         @foreach ($data as $m)
             <tr>
@@ -20,6 +22,10 @@
                 <td>{{$m->nama}}</td>
                 <td>{{$m->nim}}</td>
                 <td>{{$m->jurusan}}</td>
+                <td>
+                    <a href="/mahasiswa/{{$m->id}}/edit">Edit</a>
+                    <a href="/mahasiswa/{{$m->id}}/delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</a>
+                </td>
             </tr>
         @endforeach
     </table>

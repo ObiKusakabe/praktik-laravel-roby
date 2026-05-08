@@ -22,4 +22,26 @@ class MahasiswaController extends Controller
         Mahasiswa::create($request->all());
         return redirect('/mahasiswa');
     }
+    public function destroy($id)
+    {
+        Mahasiswa::destroy($id);
+        return redirect('/mahasiswa')->with('success', 'Data berhasil dihapus');
+    }
+
+    public function edit($id)
+    {
+        $m = Mahasiswa::find($id);
+        return view('mahasiswa.edit', compact('m'));
+    }
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'nim' => 'required|string',
+            'jurusan' => 'required|string'
+        ]);
+
+        $m = Mahasiswa::find($id)->update($request->all());
+        return redirect('/mahasiswa')->with('success', 'Data berhasil diupdate');
+    }
 }
