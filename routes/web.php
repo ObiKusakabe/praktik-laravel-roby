@@ -14,9 +14,9 @@ Route::get('/', function () {
 //     return ("Ini halaman produk");
 // });
 
-Route::get('/produk', [ProdukController::class, 'index']);
-Route::get('/showproduk', [ProdukController::class, 'show']);
-Route::get('/viewproduk', [ProdukController::class, 'view']);
+Route::get('/produk', [ProdukController::class, 'index']);//unused
+Route::get('/showproduk', [ProdukController::class, 'show']);//unused
+Route::get('/viewproduk', [ProdukController::class, 'view']);//unused
 
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
@@ -28,3 +28,4 @@ Route::get('/mahasiswa/{id}/edit', [MahasiswaController::class, 'edit']);
 Route::put('/mahasiswa/{id}/update', [MahasiswaController::class, 'update']);
 
 Route::get('/mahasiswa/{id}/delete', [MahasiswaController::class, 'destroy']);
+
